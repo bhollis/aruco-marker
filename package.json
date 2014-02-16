@@ -13,7 +13,7 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git@github.com:bhollis/aruco-marker-js.git"
+    "url": "git@github.com:bhollis/aruco-marker.git"
   },
   "author": "Benjamin Hollis",
   "license": "MIT",

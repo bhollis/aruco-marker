@@ -41,4 +41,4 @@ grunt
 
 ## License
 
-Copyright (c) 2014 Benjamin Hollis. MIT Licensed, see [MIT-LICENSE.txt] for details.
+Copyright (c) 2014 Benjamin Hollis. MIT Licensed, see [MIT-LICENSE.txt](https://github.com/bhollis/aruco-marker/blob/master/MIT-LICENSE.txt) for details.
