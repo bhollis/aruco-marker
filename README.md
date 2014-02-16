@@ -20,8 +20,18 @@ document.getElementById('marker').innerHTML = svgImage;
 
 # Demo
 
-Clone the repository and open `demos/index.html` to see a demo of generating random Aruco 
+Clone the repository and open [`demos/index.html`](https://github.com/bhollis/aruco-marker/blob/master/demos/index.html) to see a demo of generating random Aruco 
 codes.
+
+# AngularJS Support
+
+If you want to embed Aruco markers in your [AngularJS](http://angularjs.org/) application, you can use the `<aruco-marker>` directive defined in `ng-aruco-marker.js`:
+
+```html
+<aruco-marker marker-id="{{markerId}}" size="500px" />
+```
+
+See [`demos/angular.html`](https://github.com/bhollis/aruco-marker/blob/master/demos/angular.html) for a complete example.
 
 # SVG to Canvas
 

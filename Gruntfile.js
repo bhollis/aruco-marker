@@ -6,14 +6,16 @@ module.exports = function(grunt) {
     banner: '/*! <%= pkg.name %> <%= pkg.version %> <%= grunt.template.today("yyyy-mm-dd") %> - MIT Licensed, see http://github.com/bhollis/aruco-marker */\n',
     copy: {
       main: {
-        src: '<%= pkg.name %>.js',
-        dest: 'build/<%= pkg.name %>.js'
+        src: ['<%= pkg.name %>.js', 'ng-<%= pkg.name %>.js'],
+        dest: 'build/'
       },
     },
     uglify: {
       build: {
-        src: '<%= pkg.name %>.js',
-        dest: 'build/<%= pkg.name %>.min.js'
+        files: {
+          'build/<%= pkg.name %>.min.js': '<%= pkg.name %>.js',
+          'build/ng-<%= pkg.name %>.min.js': 'ng-<%= pkg.name %>.js'
+        }
       }
     },
     usebanner: {
@@ -30,7 +32,7 @@ module.exports = function(grunt) {
     },
     jshint: {
       // define the files to lint
-      files: ['Gruntfile.js', '<%= pkg.name %>.js', 'test/**/*.js'],
+      files: ['Gruntfile.js', '<%= pkg.name %>.js', 'ng-<%= pkg.name %>.js', 'test/**/*.js'],
       // configure JSHint (documented at http://www.jshint.com/docs/)
       options: {
         // more options here if you want to override JSHint defaults
