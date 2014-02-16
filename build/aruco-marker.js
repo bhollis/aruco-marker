@@ -1,4 +1,4 @@
-/*! aruco-marker 0.1.0 2014-02-15 - MIT Licensed */
+/*! aruco-marker 1.0.0 2014-02-15 - MIT Licensed, see http://github.com/bhollis/aruco-marker */
 // Export for use via AMD, Node.js, or a browser global.
 // See https://github.com/umdjs/umd/blob/master/returnExportsGlobal.js
 (function (root, factory) {

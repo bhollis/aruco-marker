@@ -1,6 +1,6 @@
 {
   "name": "aruco-marker",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "description": "Library for generating Aruco marker images",
   "main": "aruco-marker.js",
   "scripts": {
