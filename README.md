@@ -45,8 +45,8 @@ Then check out and build the project:
 
 ```bash
 npm install -g grunt-cli
-git clone https://github.com/bhollis/aruco-marker-js
-cd aruco-marker-js
+git clone https://github.com/bhollis/aruco-marker
+cd aruco-marker
 npm install
 grunt
 ```
