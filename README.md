@@ -4,6 +4,13 @@
 
 [![NPM version](https://badge.fury.io/js/aruco-marker.png)](http://badge.fury.io/js/aruco-marker) [![Bower version](https://badge.fury.io/bo/aruco-marker.png)](http://badge.fury.io/bo/aruco-marker) [![Build Status](https://api.travis-ci.org/bhollis/aruco-marker.png)](https://travis-ci.org/bhollis/aruco-marker)
 
+# Demos
+
+There are two demos that show off marker generation either directly or via the AngularJS directive:
+
+* [Random Aruco markers](http://bhollis.github.io/aruco-marker/demos/index.html) ([View Source](https://github.com/bhollis/aruco-marker/blob/master/demos/index.html))
+* [Select a marker ID (AngularJS)](http://bhollis.github.io/aruco-marker/demos/angular.html) ([View Source](https://github.com/bhollis/aruco-marker/blob/master/demos/angular.html))
+
 # Usage
 
 `aruco-marker` is available for use directly in the browser, or via AMD (RequireJS), or in NodeJS. It is installable as `aruco-marker` from either NPM or Bower.
@@ -18,10 +25,7 @@ var svgImage = myMarker.toSVG('500px'); // the size is optional
 document.getElementById('marker').innerHTML = svgImage;
 ```
 
-# Demo
-
-Clone the repository and open [`demos/index.html`](https://github.com/bhollis/aruco-marker/blob/master/demos/index.html) to see a demo of generating random Aruco 
-codes.
+See [`demos/index.html`](https://github.com/bhollis/aruco-marker/blob/master/demos/index.html) for a complete example.
 
 # AngularJS Support
 
