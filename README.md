@@ -2,6 +2,8 @@
 
 `aruco-marker` is a JavaScript library that can generate marker images (fiducials) for the [Aruco](http://www.uco.es/investiga/grupos/ava/node/26) augmented reality marker library. Aruco codes can be recognized by the original Aruco C++ library, or in the browser by [js-aruco](https://code.google.com/p/js-aruco/). `aruco-marker` generates images as SVG, making them easy to scale to any size or print out.
 
+[![NPM version](https://badge.fury.io/js/aruco-marker.png)](http://badge.fury.io/js/aruco-marker) [![Bower version](https://badge.fury.io/bo/aruco-marker.png)](http://badge.fury.io/bo/aruco-marker) [![Build Status](https://api.travis-ci.org/bhollis/aruco-marker.png)](https://travis-ci.org/bhollis/aruco-marker)
+
 # Usage
 
 `aruco-marker` is available for use directly in the browser, or via AMD (RequireJS), or in NodeJS. It is installable as `aruco-marker` from either NPM or Bower.

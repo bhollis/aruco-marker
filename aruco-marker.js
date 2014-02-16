@@ -57,8 +57,9 @@
     // Create an SVG image of the marker, as a string.
     // Optionally pass a size (in any SVG-compatible units) or leave it out to size it on your own.
     toSVG: function(size) {
-      var x, y, originX, originY;
+      var x, y;
       var marker = this.markerMatrix();
+      var image;
 
       if (size) {
         size = 'height="' + size + '" width="' + size + '"';
@@ -66,7 +67,7 @@
         size = '';
       }
 
-      var image = '<svg ' + size + ' viewBox="0 0 7 7" version="1.1" xmlns="http://www.w3.org/2000/svg">\n' +
+      image = '<svg ' + size + ' viewBox="0 0 7 7" version="1.1" xmlns="http://www.w3.org/2000/svg">\n' +
         '  <rect x="0" y="0" width="7" height="7" fill="black"/>\n';
 
       for (y = 0; y < 5; y++) {
