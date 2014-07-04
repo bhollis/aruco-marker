@@ -1,4 +1,4 @@
-/*! aruco-marker 1.0.0 2014-02-15 - MIT Licensed, see http://github.com/bhollis/aruco-marker */
+/*! aruco-marker 1.0.0 2014-06-19 - MIT Licensed, see http://github.com/bhollis/aruco-marker */
 // Export for use via AMD, Node.js, or a browser global.
 // See https://github.com/umdjs/umd/blob/master/returnExportsGlobal.js
 (function (root, factory) {
@@ -45,9 +45,9 @@
         val = ids[index];
         for (x = 0; x < 5; x++) {
           if ((val >> (4 - x)) & 1) {
-            marker[y][x] = 1;
+            marker[x][y] = 1;
           } else {
-            marker[y][x] = 0;
+            marker[x][y] = 0;
           }
         }
       }
@@ -74,7 +74,7 @@
       for (y = 0; y < 5; y++) {
         for (x = 0; x < 5; x++) {
           if (marker[x][y] === 1) {
-            image += '  <rect x="' + (5 - x) + '" y="' + (5 - y) +
+            image += '  <rect x="' + (x + 1) + '" y="' + (y + 1) +
               '" width="1" height="1" fill="white" ' +
               // Slight stroke to get around aliasing issues with adjacent rectangles
               'stroke="white" stroke-width="0.01" />\n';
