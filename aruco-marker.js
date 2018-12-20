@@ -26,23 +26,31 @@
     }
 
     this.id = id;
+    this.defaultResolution = 5;
   }
 
   ArucoMarker.prototype = {
-    // Generate a marker as a 5x5 matrix of 0s and 1s.
-    markerMatrix: function() {
+    // Generate a marker as a resolution x resolution matrix of 0s and 1s.
+    markerMatrix: function(resolution) {
+      // For backwards-compatibility (where we don't define a "resolution" argument)
+      if (typeof resolution === "undefined")
+      {
+        resolution = this.defaultResolution; 
+      }
+      
       var ids = [16, 23, 9, 14];
       var index, val, x, y;
-      var marker = [[0, 0, 0, 0, 0],
-                 [0, 0, 0, 0, 0],
-                 [0, 0, 0, 0, 0],
-                 [0, 0, 0, 0, 0],
-                 [0, 0, 0, 0, 0]];
+      
+      var marker = new Array(resolution);
+      for (var i = 0; i < resolution; i++)
+      {
+        marker[i] = new Array(resolution);
+      }
 
-      for (y = 0; y < 5; y++) {
+      for (y = 0; y < resolution; y++) {
         index = (this.id >> 2 * (4 - y)) & 3;
         val = ids[index];
-        for (x = 0; x < 5; x++) {
+        for (x = 0; x < resolution; x++) {
           if ((val >> (4 - x)) & 1) {
             marker[x][y] = 1;
           } else {
@@ -56,9 +64,16 @@
 
     // Create an SVG image of the marker, as a string.
     // Optionally pass a size (in any SVG-compatible units) or leave it out to size it on your own.
-    toSVG: function(size) {
+    toSVG: function(size, resolution) {
+
+      // For backwards-compatibility (where we don't define a "resolution" argument)
+      if (typeof resolution === "undefined")
+      {
+        resolution = this.defaultResolution; 
+      }
+
       var x, y;
-      var marker = this.markerMatrix();
+      var marker = this.markerMatrix(resolution);
       var image;
 
       if (size) {
@@ -67,11 +82,12 @@
         size = '';
       }
 
-      image = '<svg ' + size + ' viewBox="0 0 7 7" version="1.1" xmlns="http://www.w3.org/2000/svg">\n' +
-        '  <rect x="0" y="0" width="7" height="7" fill="black"/>\n';
+      var markerSize = resolution + 2;
+      image = `<svg ${size} viewBox="0 0 ${markerSize} ${markerSize}" version="1.1" xmlns="http://www.w3.org/2000/svg">\n` +
+        ` <rect x="0" y="0" width="${markerSize}" height="${markerSize}" fill="black"/>\n`;
 
-      for (y = 0; y < 5; y++) {
-        for (x = 0; x < 5; x++) {
+      for (y = 0; y < resolution; y++) {
+        for (x = 0; x < resolution; x++) {
           if (marker[x][y] === 1) {
             image += '  <rect x="' + (x + 1) + '" y="' + (y + 1) +
               '" width="1" height="1" fill="white" ' +
