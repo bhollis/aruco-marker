@@ -21,8 +21,8 @@
   // The id must be in the range [0..1023]
   // Based on https://github.com/rmsalinas/aruco/blob/master/trunk/src/arucofidmarkers.cpp
   function ArucoMarker(id) {
-    if (id < 0 || id > 1023) {
-      throw new RangeError('Marker ID must be in the range [0..1023]');
+    if (id < 0) {
+      throw new RangeError('Marker ID must be a postitive number');
     }
 
     this.id = id;

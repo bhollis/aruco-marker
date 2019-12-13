@@ -1,4 +1,4 @@
-/*! aruco-marker 1.0.0 2014-06-19 - MIT Licensed, see http://github.com/bhollis/aruco-marker */
+/*! aruco-marker 2.0.0 2019-12-13 - MIT Licensed, see http://github.com/bhollis/aruco-marker */
 // Export for use via AMD, Node.js, or a browser global.
 // See https://github.com/umdjs/umd/blob/master/returnExportsGlobal.js
 (function (root, factory) {
@@ -22,8 +22,8 @@
   // The id must be in the range [0..1023]
   // Based on https://github.com/rmsalinas/aruco/blob/master/trunk/src/arucofidmarkers.cpp
   function ArucoMarker(id) {
-    if (id < 0 || id > 1023) {
-      throw new RangeError('Marker ID must be in the range [0..1023]');
+    if (id < 0) {
+      throw new RangeError('Marker ID must be a postitive number');
     }
 
     this.id = id;
