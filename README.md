@@ -48,7 +48,7 @@ Then check out and build the project:
 git clone https://github.com/bhollis/aruco-marker
 cd aruco-marker
 npm ci
-npm demo
+npm run demo
 ```
 
 ## License
