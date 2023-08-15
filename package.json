@@ -1,30 +1,50 @@
 {
-  "name": "aruco-marker",
-  "version": "2.0.0",
-  "description": "Library for generating Aruco marker images",
-  "main": "aruco-marker.js",
-  "scripts": {
-    "test": "grunt test"
-  },
-  "keywords": [
-    "aruco",
-    "image",
-    "augmented reality"
-  ],
-  "repository": {
-    "type": "git",
-    "url": "git@github.com:bhollis/aruco-marker.git"
-  },
-  "author": "Benjamin Hollis",
-  "license": "MIT",
-  "devDependencies": {
-    "grunt": "~0.4.2",
-    "grunt-contrib-watch": "~0.5.3",
-    "grunt-contrib-jshint": "~0.8.0",
-    "grunt-contrib-uglify": "~0.3.2",
-    "grunt-jasmine-node": "~0.1.0",
-    "grunt-contrib-copy": "~0.5.0",
-    "grunt-banner": "~0.2.0",
-    "jasmine-node": "1.14.1"
-  }
+	"name": "aruco-marker",
+	"version": "3.0.0",
+	"description": "Library for generating Aruco marker images",
+	"type": "module",
+	"source": [
+		"src/aruco-marker.ts",
+		"src/element.ts"
+	],
+	"exports": {
+		".": {
+			"default": "./dist/aruco-marker.modern.js",
+			"types": "./dist/aruco-marker.d.ts"
+		},
+		"./element": {
+			"default": "./dist/element.modern.js",
+			"types": "./dist/element.d.ts"
+		}
+	},
+	"main": "./dist/aruco-marker.cjs",
+	"module": "./dist/aruco-marker.module.js",
+	"unpkg": "./dist/element.umd.js",
+	"types": "./dist/aruco-marker.d.ts",
+	"scripts": {
+		"build": "microbundle",
+		"dev": "microbundle watch",
+    "demo": "npm build && node demos/demo-server.js",
+		"test": "ts-node-test src/aruco-marker.test.ts",
+		"pretty": "prettier --write \"src/**/*.{js,ts,tsx,scss,css,html}\""
+	},
+	"keywords": [
+		"aruco",
+		"image",
+		"augmented reality"
+	],
+	"files": [
+		"./dist/*"
+	],
+	"repository": {
+		"type": "git",
+		"url": "git@github.com:bhollis/aruco-marker.git"
+	},
+	"author": "Benjamin Hollis",
+	"license": "MIT",
+	"devDependencies": {
+		"microbundle": "^0.15.1",
+		"prettier": "^3.0.1",
+		"ts-node-test": "^0.4.2"
+	}
 }

@@ -1,58 +1,54 @@
 # Generate SVG Aruco Marker Images with JavaScript
 
-`aruco-marker` is a JavaScript library that can generate marker images (fiducials) for the [Aruco](http://www.uco.es/investiga/grupos/ava/node/26) augmented reality marker library. Aruco codes can be recognized by the original Aruco C++ library, or in the browser by [js-aruco](https://code.google.com/p/js-aruco/). `aruco-marker` generates images as SVG, making them easy to scale to any size or print out.
+`aruco-marker` is a JavaScript library that can generate marker images (fiducials) for the [Aruco](https://github.com/paroj/aruco) augmented reality marker library. Aruco codes can be recognized by the original Aruco C++ library, or in the browser by [js-aruco](https://github.com/jcmellado/js-aruco). `aruco-marker` generates images as SVG, making them easy to scale to any size or print out. There is also a custom HTML element allowing you to easily embed codes anywhere on a page.
 
-[![NPM version](https://badge.fury.io/js/aruco-marker.png)](http://badge.fury.io/js/aruco-marker) [![Bower version](https://badge.fury.io/bo/aruco-marker.png)](http://badge.fury.io/bo/aruco-marker) [![Build Status](https://api.travis-ci.org/bhollis/aruco-marker.png)](https://travis-ci.org/bhollis/aruco-marker)
+[![NPM version](https://badge.fury.io/js/aruco-marker.svg)](https://www.npmjs.com/package/aruco-marker)
 
 # Demos
 
-There are two demos that show off marker generation either directly or via the AngularJS directive:
+There are two demos that show off marker generation either directly or via the custom HTML element:
 
-* [Random Aruco markers](http://bhollis.github.io/aruco-marker/demos/index.html) ([View Source](https://github.com/bhollis/aruco-marker/blob/master/demos/index.html))
-* [Select a marker ID (AngularJS)](http://bhollis.github.io/aruco-marker/demos/angular.html) ([View Source](https://github.com/bhollis/aruco-marker/blob/master/demos/angular.html))
+- [Random Aruco markers via custom element](http://bhollis.github.io/aruco-marker/demos/element.html) ([View Source](https://github.com/bhollis/aruco-marker/blob/master/demos/element.html))
+- [Random Aruco markers via string](http://bhollis.github.io/aruco-marker/demos/index.html) ([View Source](https://github.com/bhollis/aruco-marker/blob/master/demos/index.html))
 
 # Usage
 
-`aruco-marker` is available for use directly in the browser, or via AMD (RequireJS), or in NodeJS. It is installable as `aruco-marker` from either NPM or Bower.
+`aruco-marker` is available for use in the browser, or in NodeJS. It is installable as `aruco-marker` from NPM.
 
 ```javascript
-// In Node or RequireJS, require the library - otherwise 
-// ArucoMarker is already available as a browser global.
-var ArucoMarker = require('aruco-marker');
+import { arucoToSVGString } from 'aruco-marker';
 
-var myMarker = new ArucoMarker(155);
-var svgImage = myMarker.toSVG('500px'); // the size is optional
+const svgImage = arucoToSVGString(155, '500px'); // the size is optional
 document.getElementById('marker').innerHTML = svgImage;
 ```
 
 See [`demos/index.html`](https://github.com/bhollis/aruco-marker/blob/master/demos/index.html) for a complete example.
 
-# AngularJS Support
+# Custom Element
 
-If you want to embed Aruco markers in your [AngularJS](http://angularjs.org/) application, you can use the `<aruco-marker>` directive defined in `ng-aruco-marker.js`:
+`aruco-marker` is available for use in the browser, or in NodeJS. It is installable as `aruco-marker` from NPM.
 
 ```html
-<aruco-marker marker-id="{{markerId}}" size="500px" />
-```
+<script src="https://unpkg.com/aruco-marker/element"></script>
 
-See [`demos/angular.html`](https://github.com/bhollis/aruco-marker/blob/master/demos/angular.html) for a complete example.
+<aruco-marker markerid="155" size="500px"></aruco-marker>
+```
 
 # SVG to Canvas
 
-While SVG images are very flexible and are perfect for most applications, you can use [this technique](https://developer.mozilla.org/en-US/docs/HTML/Canvas/Drawing_DOM_objects_into_a_canvas) to draw an SVG image to an HTML Canvas in order to obtain an image data URL if you need a raster image.
+While SVG images are very flexible and are perfect for most applications, you can use [drawImage](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage) to draw an SVG image to an HTML Canvas in order to obtain an image data URL if you need a raster image.
 
 # Developing
 
-First, install NodeJS however you like for your system (on OSX, I use `brew install node`).
+First, install NodeJS however you like for your system (on macOS, I use `brew install node`).
 
 Then check out and build the project:
 
 ```bash
-npm install -g grunt-cli
 git clone https://github.com/bhollis/aruco-marker
 cd aruco-marker
-npm install
-grunt
+npm ci
+npm demo
 ```
 
 ## License

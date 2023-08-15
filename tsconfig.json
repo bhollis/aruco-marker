@@ -1,0 +1,22 @@
+{
+	"compilerOptions": {
+		"strict": true,
+		"isolatedModules": true,
+		"esModuleInterop": true,
+		"outDir": "./ts-out/",
+		"sourceMap": true,
+		"module": "ESNext",
+		"target": "ESNext",
+		"noEmit": true,
+		"moduleResolution": "Node",
+		"noUnusedLocals": true,
+		"noUnusedParameters": true,
+		"forceConsistentCasingInFileNames": true,
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"baseUrl": ".",
+		"allowJs": true,
+		"paths": { "aruco-marker": ["./src/aruco-marker.ts"] }
+	},
+	"include": ["src/*.ts"]
+}

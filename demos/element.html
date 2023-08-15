@@ -1,0 +1,31 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Random Aruco Markers</title>
+	</head>
+	<body>
+		<h1>Random Aruco Markers - Custom Element</h1>
+
+		<p><a href="./">Try the string version</a></p>
+
+		<div id="marker"></div>
+		<aruco-marker markerid="1" size="500px"></aruco-marker>
+
+		<script type="module" src="../dist/element.umd.js"></script>
+		<script>
+			function randomMarker() {
+				const id = Math.floor(Math.random() * 1024);
+
+				const el = document.getElementById('marker');
+				el.innerHTML = '<p>ID: ' + id + '</p>';
+
+				document.getElementsByTagName('aruco-marker')[0].markerId = id;
+				console.log(document.getElementsByTagName('aruco-marker')[0]);
+			}
+
+			randomMarker();
+			setInterval(randomMarker, 3000);
+		</script>
+	</body>
+</html>
