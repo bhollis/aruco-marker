@@ -14,27 +14,30 @@
 		"node_modules/**": true
 	},
 	"editor.codeActionsOnSave": {
-		"source.fixAll": true
+		"source.fixAll": "explicit"
 	},
 	"jest.jestCommandLine": "yarn test",
 	"[javascript]": {
 		"editor.codeActionsOnSave": {
-			"source.organizeImports": false
+			"source.organizeImports": "never"
 		}
 	},
 	"[typescript]": {
 		"editor.codeActionsOnSave": {
-			"source.organizeImports": false
+			"source.organizeImports": "never"
 		}
 	},
 	"[typescriptreact]": {
 		"editor.codeActionsOnSave": {
-			"source.organizeImports": false
+			"source.organizeImports": "never"
 		}
 	},
 	"css.validate": false,
 	"scss.validate": false,
-	"stylelint.validate": ["css", "scss"],
+	"stylelint.validate": [
+		"css",
+		"scss"
+	],
 	"explorer.fileNesting.enabled": true,
 	"explorer.fileNesting.expand": false,
 	"explorer.fileNesting.patterns": {

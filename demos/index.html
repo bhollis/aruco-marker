@@ -7,12 +7,12 @@
 	<body>
 		<h1>Random Aruco Markers - String Version</h1>
 
-		<p><a href="./">Try the custom element version</a></p>
+		<p><a href="./element.html">Try the custom element version</a></p>
 
 		<div id="marker"></div>
 
 		<script type="module">
-			import { arucoToSVGString } from '../dist/aruco-marker.modern.js';
+			import { arucoToSVGString } from '../dist/aruco-marker.js';
 			function randomMarker() {
 				const id = Math.floor(Math.random() * 1024);
 

@@ -9,23 +9,24 @@
 	],
 	"exports": {
 		".": {
-			"types": "./dist/aruco-marker.d.ts",
-			"default": "./dist/aruco-marker.modern.js"
+			"types": "./dist/src/aruco-marker.d.ts",
+			"import": "./dist/aruco-marker.js",
+			"require": "./dist/aruco-marker.cjs"
 		},
 		"./element": {
-			"types": "./dist/element.d.ts",
-			"default": "./dist/element.modern.js"
+			"types": "./dist/src/element.d.ts",
+			"import": "./dist/element.js",
+			"require": "./dist/element.cjs"
 		}
 	},
 	"main": "./dist/aruco-marker.cjs",
-	"module": "./dist/aruco-marker.module.js",
-	"unpkg": "./dist/element.umd.js",
-	"types": "./dist/aruco-marker.d.ts",
+	"module": "./dist/aruco-marker.js",
+	"types": "./dist/src/aruco-marker.d.ts",
 	"scripts": {
-		"build": "microbundle",
-		"dev": "microbundle watch",
-    "demo": "npm build && node demos/demo-server.js",
-		"test": "ts-node-test src/aruco-marker.test.ts",
+		"build": "vite build",
+		"dev": "vite",
+		"demo": "npm run build && node demos/demo-server.js",
+		"test": "vitest",
 		"pretty": "prettier --write \"src/**/*.{js,ts,tsx,scss,css,html}\""
 	},
 	"keywords": [
@@ -43,8 +44,13 @@
 	"author": "Benjamin Hollis",
 	"license": "MIT",
 	"devDependencies": {
-		"microbundle": "^0.15.1",
 		"prettier": "^3.0.1",
-		"ts-node-test": "^0.4.2"
-	}
+		"vite": "^8.0.12",
+		"vite-plugin-dts": "5.0.0",
+		"vitest": "^4.1.6"
+	},
+	"sideEffects": [
+		"./dist/element.js",
+		"./dist/element.cjs"
+	]
 }

@@ -1,4 +1,4 @@
-import { arucoToSVGString } from 'aruco-marker';
+import { arucoToSVGString } from '@/aruco-marker.js';
 
 class ArucoMarkerElement extends HTMLElement {
 	constructor() {
